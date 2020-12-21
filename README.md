@@ -3,16 +3,47 @@
 부트페이는 이니시스, 네이버페이, 카카오페이 등 모든 PG와 결제수단을 간편하게 결제연동 할 수 있습니다. PG나 결제수단 변경시 parameter 만 바꾸면 되며, 더욱 개발하기 쉽도록 인터페이스를 제공합니다.
 
 
-## react-bootpay-example
+## next-js-bootpay-example
 
-부트페이의 javascript 파일을 cdn에서 불러와 react 프로젝트에서 사용할 수 있습니다. react에서 어떻게 bootpay.js 를 사용하는지에 대해 다룹니다. 
+부트페이의 javascript 파일을 cdn에서 불러와 next.js 프로젝트에서 사용할 수 있습니다. next.js 어떻게 bootpay.js 를 사용하는지에 대해 다룹니다. 
 
 
-## 부트페이 설치하기 
+## pages/_document.js 수정
 
-```sh
-npm install bootpay-js
+만약 해당 파일이 없다면 생성해주세요.
+```javascript
+import Document, { Head, Main, NextScript } from 'next/document';
+
+export default class RootDocument extends Document {
+    render() {
+        return (
+            <html>
+                <Head>
+                    <meta charSet="utf-8" />
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+                    <meta name="description" content="Dev.log"/>
+                    <meta name="keywords" content="blog,react,antd,webpack,css,javascript" />
+                    <link rel="manifest" href="/static/manifest.json" />
+                    <link rel="shortcut icon" href="/static/favicon.ico" /> 
+                    <script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </html>
+        );
+    }
+}
 ```
+
+기존 파일이 있었다면 head 태그안에 script 만 삽입하시면 됩니다.
+```javascript
+...
+<script src="https://cdn.bootpay.co.kr/js/bootpay-3.3.1.min.js" type="application/javascript"></script>
+...
+```
+
 
 
 ## 사용하기 
