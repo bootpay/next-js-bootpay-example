@@ -10,7 +10,7 @@
 
 ## pages/_document.js 수정
 
-만약 해당 파일이 없다면 생성해주세요.
+만약 해당 파일이 없다면 생성해주세요. _document.js는 SPA에서 시작점이 되는 index.html이라고 생각하면 되는데, Custom Document를 만들때만 작성이 필요하며, 생략된 경우 Next.js가 기본 값을 사용합니다.
 ```javascript
 import Document, { Head, Main, NextScript } from 'next/document';
 
